@@ -1,31 +1,13 @@
-import org.http4s._
-import org.http4s.dsl.io._
-import org.http4s.implicits._
-import org.http4s.server.Server
 import cats.effect.IO
-import cats.effect.IOApp
-import cats.effect.ExitCode
-import org.http4s.ember.server.EmberServerBuilder
-import com.ibm.icu.util.ULocale
-import com.ibm.icu.util.TimeZone
-import com.ibm.icu.util.Region
-import org.http4s.circe.*
 import io.circe.generic.semiauto.*
 import io.circe.syntax.*
-import org.http4s.circe.CirceEntityCodec.circeEntityEncoder
-import org.http4s.circe.CirceEntityCodec.circeEntityDecoder
-import scala.io.Source
-import java.nio.file.{Paths, Files}
-import scala.util.Using
-import java.io.PrintWriter
-import cats.syntax.all._
-
-case class IpMapping(pattern: String, countryCode: String)
-
-object IpMapping {
-  given decoder: io.circe.Decoder[IpMapping] = deriveDecoder[IpMapping]
-  given encoder: io.circe.Encoder[IpMapping] = deriveEncoder[IpMapping]
+import org.http4s.*
+import org.http4s.circe.*
+import org.http4s.circe.CirceEntityCodec.{
+  circeEntityDecoder,
+  circeEntityEncoder
 }
+import org.http4s.dsl.io.*
 
 class MockGeoIpRestApi {
   def apply(): HttpRoutes[IO] = {
@@ -78,20 +60,4 @@ class MockGeoIpRestApi {
         } yield result
     }
   }
-}
-
-case class GeoIpInfo(
-    ip: Option[String],
-    countryName: Option[String],
-    countryCode: Option[String],
-    timezone: Option[String]
-)
-
-object GeoIpInfo {
-  def empty(ip: String): GeoIpInfo = {
-    GeoIpInfo(Some(ip), None, None, None)
-  }
-
-  implicit val encoder: io.circe.Encoder[GeoIpInfo] =
-    io.circe.generic.semiauto.deriveEncoder[GeoIpInfo]
 }
