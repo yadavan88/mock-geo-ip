@@ -22,26 +22,133 @@ import org.http4s.circe.*
 import io.circe.generic.semiauto.*
 import io.circe.syntax.*
 import org.http4s.circe.CirceEntityCodec.circeEntityEncoder
+import org.http4s.circe.CirceEntityCodec.circeEntityDecoder
+import scala.io.Source
+import java.nio.file.{Paths, Files}
+import scala.util.Using
+import java.io.PrintWriter
+import cats.syntax.all._
 
-class MockGeoIpService {
-  def apply(): HttpRoutes[IO] = {
-    HttpRoutes.of[IO] { case GET -> Root / "mock-geo-ip" / "csv" / ip =>
-      try {
-        println(s"IP: $ip")
-        val decodedIp = java.net.URLDecoder.decode(ip, "UTF-8")
-        println(s"Decoded IP: $decodedIp")
-        val geoIpInfo = MockGeoIpInfoGenerator.generate(decodedIp)
-        println(s"Generated GeoIpInfo: $geoIpInfo")
-        Ok(geoIpInfo.asJson)
-      } catch {
-        case ex: Exception =>
-          println(s"Error processing request: ${ex.getMessage}")
-          ex.printStackTrace()
-          InternalServerError(ex.getMessage)
+case class IpMapping(pattern: String, countryCode: String)
+
+object IpMapping {
+  given decoder: io.circe.Decoder[IpMapping] = deriveDecoder[IpMapping]
+  given encoder: io.circe.Encoder[IpMapping] = deriveEncoder[IpMapping]
+}
+
+object IpMappingReader {
+  def readMappings(): Map[String, String] = {
+    val path = Paths.get("ip_mappings.csv")
+    if (!Files.exists(path)) {
+      println("Warning: ip_mappings.csv not found, using empty map")
+      Map.empty
+    } else {
+      Using(Source.fromFile("ip_mappings.csv")) { source =>
+        source
+          .getLines()
+          .drop(1) // Skip header
+          .map(_.split(","))
+          .collect { case Array(pattern, countryCode) =>
+            pattern -> countryCode
+          }
+          .toMap
+      }.getOrElse {
+        println("Error reading ip_mappings.csv, using empty map")
+        Map.empty
+      }
+    }
+  }
+
+  def saveMappings(mappings: List[IpMapping]): IO[Unit] = {
+    IO {
+      Using(new PrintWriter("ip_mappings.csv")) { writer =>
+        writer.println("pattern,country_code")
+        mappings.foreach { mapping =>
+          writer.println(s"${mapping.pattern},${mapping.countryCode}")
+        }
+      }
+    }
+  }
+
+  def validateMapping(
+      newMapping: IpMapping,
+      existingMappings: Map[String, String]
+  ): Either[String, Unit] = {
+    // Check if the pattern is valid
+    if (!newMapping.pattern.matches("^[0-9.*]+$")) {
+      Left("Invalid IP pattern format")
+    } else {
+      // Check for conflicts with existing patterns
+      val conflicts = existingMappings.find { case (pattern, _) =>
+        val newPattern = newMapping.pattern.replace("*", ".*")
+        val existingPattern = pattern.replace("*", ".*")
+        newPattern.r.matches(pattern) || existingPattern.r.matches(
+          newMapping.pattern
+        )
+      }
+
+      conflicts match {
+        case Some((pattern, _)) =>
+          Left(s"Pattern conflicts with existing pattern: $pattern")
+        case None => Right(())
       }
     }
   }
 }
+
+class MockGeoIpService {
+  def apply(): HttpRoutes[IO] = {
+    HttpRoutes.of[IO] {
+      case GET -> Root / "mock-geo-ip" / "csv" / ip =>
+        try {
+          println(s"IP: $ip")
+          val decodedIp = java.net.URLDecoder.decode(ip, "UTF-8")
+          println(s"Decoded IP: $decodedIp")
+          val geoIpInfo = MockGeoIpInfoGenerator.generate(decodedIp)
+          println(s"Generated GeoIpInfo: $geoIpInfo")
+          Ok(geoIpInfo.asJson)
+        } catch {
+          case ex: Exception =>
+            println(s"Error processing request: ${ex.getMessage}")
+            ex.printStackTrace()
+            InternalServerError(ex.getMessage)
+        }
+
+      case GET -> Root / "mock-geo-ip" / "mappings" =>
+        val mappings = IpMappingReader.readMappings()
+        Ok(
+          mappings
+            .map { case (pattern, countryCode) =>
+              IpMapping(pattern, countryCode)
+            }
+            .toList
+            .asJson
+        )
+
+      case req @ POST -> Root / "mock-geo-ip" / "mappings" =>
+        for {
+          mapping <- req.as[IpMapping]
+          existingMappings = IpMappingReader.readMappings()
+          result <- IpMappingReader.validateMapping(
+            mapping,
+            existingMappings
+          ) match {
+            case Right(_) =>
+              val updatedMappings =
+                existingMappings + (mapping.pattern -> mapping.countryCode)
+              IpMappingReader
+                .saveMappings(updatedMappings.toList.map { case (p, c) =>
+                  IpMapping(p, c)
+                })
+                .flatMap(_ => Ok("Mapping added successfully"))
+            case Left(error) =>
+              BadRequest(error)
+          }
+        } yield result
+    }
+  }
+}
+
 
 object Main extends IOApp {
   def run(args: List[String]): IO[ExitCode] = {
@@ -97,7 +204,8 @@ object MockGeoIpInfoGenerator {
       try {
         val timezones = TimeZone.getAvailableIDs(countryCode).toList
         // Create locale with country code and get display name
-        val countryName = new ULocale("", countryCode).getDisplayCountry(ULocale.ENGLISH)
+        val countryName =
+          new ULocale("", countryCode).getDisplayCountry(ULocale.ENGLISH)
         Some((countryCode, timezones, countryName))
       } catch {
         case ex: Exception =>
@@ -108,6 +216,7 @@ object MockGeoIpInfoGenerator {
   }
 
   def generate(ip: String): GeoIpInfo = {
+    val ipMap = IpMappingReader.readMappings()
     // First try exact match
     val countryCode = ipMap.get(ip) match {
       case Some(code) => Some(code) // Exact match found
@@ -137,10 +246,4 @@ object MockGeoIpInfoGenerator {
       }
       .getOrElse(GeoIpInfo.empty(ip))
   }
-
-  val ipMap = Map(
-    "192.168.1.1" -> "DE",
-    "192.168.1.*" -> "US",
-    "10.0.*.*" -> "GB"
-  )
 }
