@@ -29,7 +29,7 @@ class MockGeoIpRestApi {
       case GET -> Root / "mock-geo-ip" / "csv" / ip =>
         try {
           println(s"IP: $ip")
-          val decodedIp = java.net.URLDecoder.decode(ip, "UTF-8")
+          val decodedIp = java.net.URLDecoder.decode(ip.trim, "UTF-8")
           println(s"Decoded IP: $decodedIp")
           val geoIpInfo = MockGeoIpInfoGenerator.generate(decodedIp)
           println(s"Generated GeoIpInfo: $geoIpInfo")

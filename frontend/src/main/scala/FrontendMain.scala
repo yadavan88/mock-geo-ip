@@ -164,10 +164,17 @@ object FrontendMain {
           body = s"""{"pattern": "$pattern", "countryCode": "$country"}"""
         }
       )
-      .flatMap(_.text())
-      .map { response =>
-        resultDiv.innerHTML = div(cls := "success")(response).render.outerHTML
-        loadMappings(e)
+      .flatMap { response =>
+        if (response.status >= 200 && response.status < 300) {
+          response.text().map { text =>
+            resultDiv.innerHTML = div(cls := "success")(text).render.outerHTML
+            loadMappings(e)
+          }
+        } else {
+          response.text().map { text =>
+            resultDiv.innerHTML = div(cls := "error")(text).render.outerHTML
+          }
+        }
       }
       .recover { case ex =>
         resultDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML

@@ -60,18 +60,14 @@ object IpMappingRepo {
     if (!newMapping.pattern.matches("^[0-9.*]+$")) {
       Left("Invalid IP pattern format")
     } else {
-      // Check for conflicts with existing patterns
-      val conflicts = existingMappings.find { case (pattern, _) =>
-        val newPattern = newMapping.pattern.replace("*", ".*")
-        val existingPattern = pattern.replace("*", ".*")
-        newPattern.r.matches(pattern) || existingPattern.r.matches(
-          newMapping.pattern
-        )
+      // Check for exact matches only
+      val exactMatch = existingMappings.find { case (pattern, _) =>
+        pattern == newMapping.pattern
       }
 
-      conflicts match {
+      exactMatch match {
         case Some((pattern, _)) =>
-          Left(s"Pattern conflicts with existing pattern: $pattern")
+          Left(s"Exact pattern already exists: $pattern")
         case None => Right(())
       }
     }

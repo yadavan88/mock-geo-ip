@@ -1364,7 +1364,7 @@ $c_LFrontendMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e)
     return (void 0);
   }
   resultDiv.innerHTML = $as_T($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Adding mapping..."))])))).render__Lorg_scalajs_dom_Element().outerHTML);
-  $n($n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings", (() => {
+  $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings", (() => {
     var pattern$1 = null;
     var country$1 = null;
     pattern$1 = pattern;
@@ -1375,11 +1375,14 @@ $c_LFrontendMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e)
     this$5.headers = $m_sjs_js_special_package$().objectLiteral__sci_Seq__sjs_js_Object(properties);
     this$5.body = (((("{\"pattern\": \"" + pattern$1) + "\", \"countryCode\": \"") + country$1) + "\"}");
     return this$5;
-  })()))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$5) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$5.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
-    var response$1 = $as_T(response);
-    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("success", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag(response$1))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+  })()))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => ((($uI(response.status) >= 200) && ($uI(response.status) < 300)) ? $n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(response.text())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((text) => {
+    var text$1 = $as_T(text);
+    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("success", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag(text$1))])))).render__Lorg_scalajs_dom_Element().outerHTML);
     $m_LFrontendMain$().loadMappings__Lorg_scalajs_dom_Event__V(e);
-  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_LFrontendMain$$anon$4(resultDiv), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
+  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor()) : $n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(response.text())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((text$2) => {
+    var text$3 = $as_T(text$2);
+    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag(text$3))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_LFrontendMain$$anon$4(resultDiv), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
 var $d_LFrontendMain$ = new $TypeData().initClass($c_LFrontendMain$, "FrontendMain$", ({
   LFrontendMain$: 1
@@ -24418,9 +24421,9 @@ var $d_Lscalatags_generic_Attr = new $TypeData().initClass($c_Lscalatags_generic
   Ljava_io_Serializable: 1
 }));
 /** @constructor */
-function $c_LFrontendMain$$anon$1(resultDiv$6) {
+function $c_LFrontendMain$$anon$1(resultDiv$8) {
   this.LFrontendMain$$anon$1__f_resultDiv$2 = null;
-  this.LFrontendMain$$anon$1__f_resultDiv$2 = resultDiv$6;
+  this.LFrontendMain$$anon$1__f_resultDiv$2 = resultDiv$8;
 }
 $c_LFrontendMain$$anon$1.prototype = new $h_sr_AbstractPartialFunction();
 $c_LFrontendMain$$anon$1.prototype.constructor = $c_LFrontendMain$$anon$1;
@@ -24490,9 +24493,9 @@ var $d_LFrontendMain$$anon$2 = new $TypeData().initClass($c_LFrontendMain$$anon$
   Ljava_io_Serializable: 1
 }));
 /** @constructor */
-function $c_LFrontendMain$$anon$4(resultDiv$8) {
-  this.LFrontendMain$$anon$4__f_resultDiv$4 = null;
-  this.LFrontendMain$$anon$4__f_resultDiv$4 = resultDiv$8;
+function $c_LFrontendMain$$anon$4(resultDiv$11) {
+  this.LFrontendMain$$anon$4__f_resultDiv$6 = null;
+  this.LFrontendMain$$anon$4__f_resultDiv$6 = resultDiv$11;
 }
 $c_LFrontendMain$$anon$4.prototype = new $h_sr_AbstractPartialFunction();
 $c_LFrontendMain$$anon$4.prototype.constructor = $c_LFrontendMain$$anon$4;
@@ -24504,7 +24507,7 @@ $c_LFrontendMain$$anon$4.prototype.isDefinedAt__jl_Throwable__Z = (function(x) {
   return true;
 });
 $c_LFrontendMain$$anon$4.prototype.applyOrElse__jl_Throwable__F1__O = (function(x, default$1) {
-  var $x_4 = this.LFrontendMain$$anon$4__f_resultDiv$4;
+  var $x_4 = this.LFrontendMain$$anon$4__f_resultDiv$6;
   var $x_3 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_2 = $m_sr_ScalaRunTime$();
   $m_Lscalatags_JsDom$all$();
