@@ -6,13 +6,22 @@ import java.io.PrintWriter
 import cats.effect.IO
 
 object IpMappingRepo {
+  // Use environment variable or fallback to local directory
+  private val dataDir = sys.env.get("DATA_DIR")
+    .map(Paths.get(_))
+    .getOrElse(Paths.get("data"))
+  private val csvFile = dataDir.resolve("ip_mappings.csv")
+
   def readMappings(): Map[String, String] = {
-    val path = Paths.get("ip_mappings.csv")
-    if (!Files.exists(path)) {
-      println("Warning: ip_mappings.csv not found, using empty map")
+    if (!Files.exists(dataDir)) {
+      Files.createDirectories(dataDir)
+    }
+
+    if (!Files.exists(csvFile)) {
+      println(s"Warning: ${csvFile} not found, using empty map")
       Map.empty
     } else {
-      Using(Source.fromFile("ip_mappings.csv")) { source =>
+      Using(Source.fromFile(csvFile.toFile)) { source =>
         source
           .getLines()
           .drop(1) // Skip header
@@ -22,7 +31,7 @@ object IpMappingRepo {
           }
           .toMap
       }.getOrElse {
-        println("Error reading ip_mappings.csv, using empty map")
+        println(s"Error reading ${csvFile}, using empty map")
         Map.empty
       }
     }
@@ -30,7 +39,11 @@ object IpMappingRepo {
 
   def saveMappings(mappings: List[IpMapping]): IO[Unit] = {
     IO {
-      Using(new PrintWriter("ip_mappings.csv")) { writer =>
+      if (!Files.exists(dataDir)) {
+        Files.createDirectories(dataDir)
+      }
+      
+      Using(new PrintWriter(csvFile.toFile)) { writer =>
         writer.println("pattern,country_code")
         mappings.foreach { mapping =>
           writer.println(s"${mapping.pattern},${mapping.countryCode}")
