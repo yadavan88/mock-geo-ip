@@ -1,0 +1,44 @@
+# Scala
+*.class
+*.log
+*.ctxt
+.metals/
+.bloop/
+.metals.sbt
+project/metals.sbt
+project/project/
+project/target/
+target/
+lib_managed/
+src_managed/
+.sbt/
+.cache/
+.history/
+.lib/
+dist/
+tmp/
+out/
+.idea/
+.idea_modules/
+*.iml
+*.iws
+.DS_Store
+
+# Java
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# IDE
+.vscode/
+.bsp/
+.scala-build/
+.ensime
+.ensime_cache/
+.scala_dependencies
+.worksheet/ 
