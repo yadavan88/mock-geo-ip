@@ -1114,23 +1114,23 @@ var $d_I = new $TypeData().initPrim(0, "I", "int", $ac_I, Int32Array);
 var $d_J = new $TypeData().initPrim(null, "J", "long", $ac_J, (void 0));
 var $d_F = new $TypeData().initPrim(0.0, "F", "float", $ac_F, Float32Array);
 var $d_D = new $TypeData().initPrim(0.0, "D", "double", $ac_D, Float64Array);
-function $s_LMain__main__AT__V(args) {
-  $m_LMain$().main__AT__V(args);
+function $s_LFrontendMain__main__AT__V(args) {
+  $m_LFrontendMain$().main__AT__V(args);
 }
 /** @constructor */
-function $c_LMain$() {
+function $c_LFrontendMain$() {
 }
-$c_LMain$.prototype = new $h_O();
-$c_LMain$.prototype.constructor = $c_LMain$;
+$c_LFrontendMain$.prototype = new $h_O();
+$c_LFrontendMain$.prototype.constructor = $c_LFrontendMain$;
 /** @constructor */
-function $h_LMain$() {
+function $h_LFrontendMain$() {
 }
-$h_LMain$.prototype = $c_LMain$.prototype;
-$c_LMain$.prototype.main__AT__V = (function(args) {
+$h_LFrontendMain$.prototype = $c_LFrontendMain$.prototype;
+$c_LFrontendMain$.prototype.main__AT__V = (function(args) {
   var app = document.getElementById("app");
   app.appendChild(this.createUI__Lorg_scalajs_dom_HTMLDivElement());
 });
-$c_LMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
+$c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   var $x_36 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag());
   var $x_35 = $m_sr_ScalaRunTime$();
   var this$2 = $n($m_Lscalatags_JsDom$all$().h1__Lscalatags_generic_TypedTag());
@@ -1150,7 +1150,7 @@ $c_LMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   var $x_25 = new $c_Lscalatags_JsDom$StringFrag("Lookup");
   var $x_24 = $m_Lscalatags_JsDom$all$().onclick__Lscalatags_generic_Attr();
   var $x_23 = new $c_sjsr_AnonFunction1(((e) => {
-    $m_LMain$().lookupIp__Lorg_scalajs_dom_Event__V(e);
+    $m_LFrontendMain$().lookupIp__Lorg_scalajs_dom_Event__V(e);
   }));
   $m_Lscalatags_JsDom$all$();
   var ev = new $c_sjsr_AnonFunction1(((f) => {
@@ -1169,7 +1169,7 @@ $c_LMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   var $x_16 = new $c_Lscalatags_JsDom$StringFrag("Refresh Mappings");
   var $x_15 = $m_Lscalatags_JsDom$all$().onclick__Lscalatags_generic_Attr();
   var $x_14 = new $c_sjsr_AnonFunction1(((e$2) => {
-    $m_LMain$().loadMappings__Lorg_scalajs_dom_Event__V(e$2);
+    $m_LFrontendMain$().loadMappings__Lorg_scalajs_dom_Event__V(e$2);
   }));
   $m_Lscalatags_JsDom$all$();
   var ev$1 = new $c_sjsr_AnonFunction1(((f$2) => {
@@ -1192,7 +1192,7 @@ $c_LMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   var $x_3 = new $c_Lscalatags_JsDom$StringFrag("Add");
   var $x_2 = $m_Lscalatags_JsDom$all$().onclick__Lscalatags_generic_Attr();
   var $x_1 = new $c_sjsr_AnonFunction1(((e$3) => {
-    $m_LMain$().addMapping__Lorg_scalajs_dom_Event__V(e$3);
+    $m_LFrontendMain$().addMapping__Lorg_scalajs_dom_Event__V(e$3);
   }));
   $m_Lscalatags_JsDom$all$();
   var ev$2 = new $c_sjsr_AnonFunction1(((f$3$1) => {
@@ -1201,7 +1201,7 @@ $c_LMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   }));
   return $n($n($x_36).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_35).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_34, $x_22, $x_13, $n($x_12).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_11).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_10, $n($x_9).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_8).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_7, $x_6, $n($x_5).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_4).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_3, $n($x_2).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_1, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev$2))])))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("addResult", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])))])))).render__Lorg_scalajs_dom_Element();
 });
-$c_LMain$.prototype.lookupIp__Lorg_scalajs_dom_Event__V = (function(e) {
+$c_LFrontendMain$.prototype.lookupIp__Lorg_scalajs_dom_Event__V = (function(e) {
   var ip = $as_T(document.getElementById("ipInput").value);
   var resultDiv = document.getElementById("ipResult");
   $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch(("/mock-geo-ip/csv/" + ip)))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$1) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$1.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
@@ -1271,7 +1271,7 @@ $c_LMain$.prototype.lookupIp__Lorg_scalajs_dom_Event__V = (function(e) {
     resultDiv.innerHTML = $x_1;
   })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
-$c_LMain$.prototype.loadMappings__Lorg_scalajs_dom_Event__V = (function(e) {
+$c_LFrontendMain$.prototype.loadMappings__Lorg_scalajs_dom_Event__V = (function(e) {
   var tableDiv = document.getElementById("mappingsTable");
   $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings"))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$3) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$3.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
     var response$1 = $as_T(response);
@@ -1333,7 +1333,7 @@ $c_LMain$.prototype.loadMappings__Lorg_scalajs_dom_Event__V = (function(e) {
     tableDiv.innerHTML = $as_T($x_2);
   })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
-$c_LMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e) {
+$c_LFrontendMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e) {
   var pattern = $as_T(document.getElementById("patternInput").value);
   var country = $as_T(document.getElementById("countryInput").value);
   var resultDiv = document.getElementById("addResult");
@@ -1351,18 +1351,18 @@ $c_LMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e) {
   })()))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$5) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$5.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
     var response$1 = $as_T(response);
     resultDiv.innerHTML = response$1;
-    $m_LMain$().loadMappings__Lorg_scalajs_dom_Event__V(e);
+    $m_LFrontendMain$().loadMappings__Lorg_scalajs_dom_Event__V(e);
   })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
-var $d_LMain$ = new $TypeData().initClass($c_LMain$, "Main$", ({
-  LMain$: 1
+var $d_LFrontendMain$ = new $TypeData().initClass($c_LFrontendMain$, "FrontendMain$", ({
+  LFrontendMain$: 1
 }));
-var $n_LMain$;
-function $m_LMain$() {
-  if ((!$n_LMain$)) {
-    $n_LMain$ = new $c_LMain$();
+var $n_LFrontendMain$;
+function $m_LFrontendMain$() {
+  if ((!$n_LFrontendMain$)) {
+    $n_LFrontendMain$ = new $c_LFrontendMain$();
   }
-  return $n_LMain$;
+  return $n_LFrontendMain$;
 }
 /** @constructor */
 function $c_Lcats_Eval$FnStack() {
@@ -48490,6 +48490,6 @@ var $d_sjs_js_WrappedArray = new $TypeData().initClass($c_sjs_js_WrappedArray, "
 }));
 $L0 = new $c_RTLong(0, 0);
 $d_J.zero = $L0;
-$s_LMain__main__AT__V(new ($d_T.getArrayOf().constr)([]));
+$s_LFrontendMain__main__AT__V(new ($d_T.getArrayOf().constr)([]));
 }).call(this);
 //# sourceMappingURL=mock-geoip-frontend-fastopt.js.map

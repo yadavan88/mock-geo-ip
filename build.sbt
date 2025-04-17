@@ -8,6 +8,7 @@ lazy val root = project
 
 lazy val backend = project
   .in(file("backend"))
+  .enablePlugins(JavaAppPackaging, DockerPlugin)
   .settings(
     name := "mock-geoip-backend",
     libraryDependencies ++= Seq(
@@ -15,7 +16,9 @@ lazy val backend = project
       "org.http4s" %% "http4s-ember-client" % "0.23.30",
       "org.http4s" %% "http4s-dsl" % "0.23.30",
       "org.http4s" %% "http4s-circe" % "0.23.30",
-      "com.ibm.icu" % "icu4j" % "77.1"
+      "com.ibm.icu" % "icu4j" % "77.1",
+      "ch.qos.logback" % "logback-classic" % "1.4.14",
+      "org.slf4j" % "slf4j-api" % "2.0.9"
     ),
     Compile / resourceGenerators += Def.task {
       val frontendFiles = (frontend / Compile / fastOptJS).value
@@ -23,7 +26,13 @@ lazy val backend = project
       IO.createDirectory(targetDir)
       IO.copyFile(frontendFiles.data, targetDir / "main.js")
       Seq(targetDir)
-    }.dependsOn(frontend / Compile / fastOptJS).taskValue
+    }.dependsOn(frontend / Compile / fastOptJS).taskValue,
+    // Docker settings
+    Docker / packageName := "mock-geoip",
+    Docker / version := "latest",
+    dockerBaseImage := "eclipse-temurin:17-jre",
+    dockerExposedPorts := Seq(9050),
+    dockerUpdateLatest := true
   ).dependsOn(shared)
 
 lazy val frontend = project

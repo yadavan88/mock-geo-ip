@@ -9,7 +9,7 @@ object MainApp extends IOApp {
     val server = EmberServerBuilder
       .default[IO]
       .withHost(ipv4"0.0.0.0")
-      .withPort(port"8080")
+      .withPort(port"9050")
       .withHttpApp(mockGeoIpService.apply().orNotFound)
       .build
 
