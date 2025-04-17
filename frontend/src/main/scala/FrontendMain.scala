@@ -5,7 +5,7 @@ import scala.scalajs.js.Thenable.Implicits._
 import scala.scalajs.js
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object Main {
+object FrontendMain {
   def main(args: Array[String]): Unit = {
     val app = document.getElementById("app")
     app.appendChild(createUI())
