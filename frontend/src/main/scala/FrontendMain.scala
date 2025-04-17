@@ -9,6 +9,8 @@ object FrontendMain {
   def main(args: Array[String]): Unit = {
     val app = document.getElementById("app")
     app.appendChild(createUI())
+    // Load mappings immediately after creating the UI
+    loadMappings(null)
   }
 
   def createUI(): html.Div = {
@@ -19,17 +21,21 @@ object FrontendMain {
       div(cls := "container")(
         h2("Lookup IP"),
         div(cls := "input-group")(
-          input(id := "ipInput", placeholder := "Enter IP address"),
+          input(
+            id := "ipInput",
+            placeholder := "Enter IP address (e.g., 192.168.1.1)",
+            `type` := "text"
+          ),
           button("Lookup", onclick := lookupIp)
         ),
-        div(id := "ipResult")
+        div(id := "ipResult", cls := "result-container")
       ),
 
       // View mappings section
       div(cls := "container")(
         h2("IP Mappings"),
         button("Refresh Mappings", onclick := loadMappings),
-        div(id := "mappingsTable")
+        div(id := "mappingsTable", cls := "result-container")
       ),
 
       // Add mapping section
@@ -38,12 +44,17 @@ object FrontendMain {
         div(cls := "input-group")(
           input(
             id := "patternInput",
-            placeholder := "IP Pattern (e.g., 192.168.1.*)"
+            placeholder := "IP Pattern (e.g., 192.168.1.*)",
+            `type` := "text"
           ),
-          input(id := "countryInput", placeholder := "Country Code (e.g., US)"),
+          input(
+            id := "countryInput",
+            placeholder := "Country Code (e.g., US)",
+            `type` := "text"
+          ),
           button("Add", onclick := addMapping)
         ),
-        div(id := "addResult")
+        div(id := "addResult", cls := "result-container")
       )
     ).render
   }
@@ -51,6 +62,13 @@ object FrontendMain {
   def lookupIp(e: dom.Event): Unit = {
     val ip = document.getElementById("ipInput").asInstanceOf[html.Input].value
     val resultDiv = document.getElementById("ipResult")
+
+    if (ip.isEmpty) {
+      resultDiv.innerHTML = div(cls := "error")("Please enter an IP address").render.outerHTML
+      return
+    }
+
+    resultDiv.innerHTML = div("Loading...").render.outerHTML
 
     dom
       .fetch(s"/mock-geo-ip/csv/$ip")
@@ -64,18 +82,31 @@ object FrontendMain {
         resultDiv.innerHTML = result match {
           case Some(info) =>
             table(
-              tr(th("IP"), td(info.ip.getOrElse(""))),
-              tr(th("Country"), td(info.countryName.getOrElse(""))),
-              tr(th("Country Code"), td(info.countryCode.getOrElse(""))),
-              tr(th("Timezone"), td(info.timezone.getOrElse("")))
+              thead(
+                tr(
+                  th("Field"),
+                  th("Value")
+                )
+              ),
+              tbody(
+                tr(td("IP"), td(info.ip.getOrElse("N/A"))),
+                tr(td("Country"), td(info.countryName.getOrElse("N/A"))),
+                tr(td("Country Code"), td(info.countryCode.getOrElse("N/A"))),
+                tr(td("Timezone"), td(info.timezone.getOrElse("N/A")))
+              )
             ).render.outerHTML
-          case None => "Error looking up IP"
+          case None => 
+            div(cls := "error")("Error looking up IP").render.outerHTML
         }
+      }
+      .recover { case ex =>
+        resultDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
       }
   }
 
   def loadMappings(e: dom.Event): Unit = {
     val tableDiv = document.getElementById("mappingsTable")
+    tableDiv.innerHTML = div("Loading...").render.outerHTML
 
     dom
       .fetch("/mock-geo-ip/mappings")
@@ -87,25 +118,42 @@ object FrontendMain {
           .flatMap(_.as[List[IpMapping]].toOption)
           .getOrElse(Nil)
 
-        tableDiv.innerHTML = table(
-          thead(tr(th("Pattern"), th("Country Code"))),
-          tbody(
-            for (mapping <- mappings)
-              yield tr(
-                td(mapping.pattern),
-                td(mapping.countryCode)
+        if (mappings.isEmpty) {
+          tableDiv.innerHTML = div("No mappings found").render.outerHTML
+        } else {
+          tableDiv.innerHTML = table(
+            thead(
+              tr(
+                th("IP Pattern"),
+                th("Country Code")
               )
-          )
-        ).render.outerHTML
+            ),
+            tbody(
+              for (mapping <- mappings)
+                yield tr(
+                  td(mapping.pattern),
+                  td(mapping.countryCode)
+                )
+            )
+          ).render.outerHTML
+        }
+      }
+      .recover { case ex =>
+        tableDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
       }
   }
 
   def addMapping(e: dom.Event): Unit = {
-    val pattern =
-      document.getElementById("patternInput").asInstanceOf[html.Input].value
-    val country =
-      document.getElementById("countryInput").asInstanceOf[html.Input].value
+    val pattern = document.getElementById("patternInput").asInstanceOf[html.Input].value
+    val country = document.getElementById("countryInput").asInstanceOf[html.Input].value
     val resultDiv = document.getElementById("addResult")
+
+    if (pattern.isEmpty || country.isEmpty) {
+      resultDiv.innerHTML = div(cls := "error")("Please fill in all fields").render.outerHTML
+      return
+    }
+
+    resultDiv.innerHTML = div("Adding mapping...").render.outerHTML
 
     dom
       .fetch(
@@ -118,8 +166,11 @@ object FrontendMain {
       )
       .flatMap(_.text())
       .map { response =>
-        resultDiv.innerHTML = response
+        resultDiv.innerHTML = div(cls := "success")(response).render.outerHTML
         loadMappings(e)
+      }
+      .recover { case ex =>
+        resultDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
       }
   }
 }

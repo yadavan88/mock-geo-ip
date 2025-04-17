@@ -1129,6 +1129,7 @@ $h_LFrontendMain$.prototype = $c_LFrontendMain$.prototype;
 $c_LFrontendMain$.prototype.main__AT__V = (function(args) {
   var app = document.getElementById("app");
   app.appendChild(this.createUI__Lorg_scalajs_dom_HTMLDivElement());
+  this.loadMappings__Lorg_scalajs_dom_Event__V(null);
 });
 $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (function() {
   var $x_36 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag());
@@ -1143,7 +1144,7 @@ $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (functio
   var $x_31 = this$4.apply__sci_Seq__Lscalatags_JsDom$TypedTag(xs$1);
   var $x_30 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("input-group", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_29 = $m_sr_ScalaRunTime$();
-  var $x_28 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("ipInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("Enter IP address", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_28 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("ipInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("Enter IP address (e.g., 192.168.1.1)", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().type__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("text", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_27 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().button__Lscalatags_generic_TypedTag());
   var $x_26 = $m_sr_ScalaRunTime$();
   $m_Lscalatags_JsDom$all$();
@@ -1157,7 +1158,7 @@ $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (functio
     var f$1 = $as_F1(f);
     return $m_sjs_js_Any$().fromFunction1__F1__sjs_js_Function1(f$1);
   }));
-  var $x_22 = $n($x_33).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_32).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_31, $n($x_30).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_29).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_28, $n($x_27).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_26).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_25, $n($x_24).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_23, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev))])))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("ipResult", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])));
+  var $x_22 = $n($x_33).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_32).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_31, $n($x_30).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_29).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_28, $n($x_27).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_26).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_25, $n($x_24).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_23, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev))])))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("ipResult", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("result-container", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])));
   var $x_21 = $n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("container", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)]))));
   var $x_20 = $m_sr_ScalaRunTime$();
   var this$8 = $n($m_Lscalatags_JsDom$all$().h2__Lscalatags_generic_TypedTag());
@@ -1176,7 +1177,7 @@ $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (functio
     var f$3 = $as_F1(f$2);
     return $m_sjs_js_Any$().fromFunction1__F1__sjs_js_Function1(f$3);
   }));
-  var $x_13 = $n($x_21).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_20).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_19, $n($x_18).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_17).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_16, $n($x_15).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_14, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev$1))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("mappingsTable", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])));
+  var $x_13 = $n($x_21).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_20).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_19, $n($x_18).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_17).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_16, $n($x_15).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_14, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev$1))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("mappingsTable", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("result-container", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])));
   var $x_12 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("container", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_11 = $m_sr_ScalaRunTime$();
   var this$12 = $n($m_Lscalatags_JsDom$all$().h2__Lscalatags_generic_TypedTag());
@@ -1184,8 +1185,8 @@ $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (functio
   var $x_10 = this$12.apply__sci_Seq__Lscalatags_JsDom$TypedTag(xs$3);
   var $x_9 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("input-group", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_8 = $m_sr_ScalaRunTime$();
-  var $x_7 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("patternInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("IP Pattern (e.g., 192.168.1.*)", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
-  var $x_6 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("countryInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("Country Code (e.g., US)", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_7 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("patternInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("IP Pattern (e.g., 192.168.1.*)", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().type__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("text", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_6 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().input__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("countryInput", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().placeholder__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("Country Code (e.g., US)", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().type__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("text", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
   var $x_5 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().button__Lscalatags_generic_TypedTag());
   var $x_4 = $m_sr_ScalaRunTime$();
   $m_Lscalatags_JsDom$all$();
@@ -1199,160 +1200,186 @@ $c_LFrontendMain$.prototype.createUI__Lorg_scalajs_dom_HTMLDivElement = (functio
     var f$4 = $as_F1(f$3$1);
     return $m_sjs_js_Any$().fromFunction1__F1__sjs_js_Function1(f$4);
   }));
-  return $n($n($x_36).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_35).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_34, $x_22, $x_13, $n($x_12).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_11).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_10, $n($x_9).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_8).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_7, $x_6, $n($x_5).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_4).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_3, $n($x_2).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_1, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev$2))])))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("addResult", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])))])))).render__Lorg_scalajs_dom_Element();
+  return $n($n($x_36).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_35).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_34, $x_22, $x_13, $n($x_12).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_11).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_10, $n($x_9).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_8).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_7, $x_6, $n($x_5).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_4).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_3, $n($x_2).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair($x_1, new $c_Lscalatags_LowPriorityImplicits$$anon$2(ev$2))])))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().id__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("addResult", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr), $n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("result-container", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))])))])))).render__Lorg_scalajs_dom_Element();
 });
 $c_LFrontendMain$.prototype.lookupIp__Lorg_scalajs_dom_Event__V = (function(e) {
   var ip = $as_T(document.getElementById("ipInput").value);
   var resultDiv = document.getElementById("ipResult");
-  $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch(("/mock-geo-ip/csv/" + ip)))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$1) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$1.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
+  var this$1 = $n(ip);
+  if ((this$1 === "")) {
+    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Please enter an IP address"))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+    return (void 0);
+  }
+  resultDiv.innerHTML = $as_T($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Loading..."))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+  $n($n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch(("/mock-geo-ip/csv/" + ip)))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$1) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$1.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
     var response$1 = $as_T(response);
-    var this$2 = $n($n($m_Lio_circe_parser_package$().parse__T__s_util_Either(response$1)).toOption__s_Option());
-    if (this$2.isEmpty__Z()) {
+    var this$5 = $n($n($m_Lio_circe_parser_package$().parse__T__s_util_Either(response$1)).toOption__s_Option());
+    if (this$5.isEmpty__Z()) {
       var result = $m_s_None$();
     } else {
-      var arg1 = this$2.get__O();
+      var arg1 = this$5.get__O();
       var _$2 = $as_Lio_circe_Json(arg1);
-      var this$3 = $n(_$2);
+      var this$6 = $n(_$2);
       var d = $m_LGeoIpInfo$().LGeoIpInfo$__f_decoder;
-      var result = $n($n(d).apply__Lio_circe_HCursor__s_util_Either(new $c_Lio_circe_cursor_TopCursor(this$3, null, null))).toOption__s_Option();
+      var result = $n($n(d).apply__Lio_circe_HCursor__s_util_Either(new $c_Lio_circe_cursor_TopCursor(this$6, null, null))).toOption__s_Option();
     }
     matchResult1: {
       var $x_1;
       if ((result instanceof $c_s_Some)) {
         var info = $as_LGeoIpInfo($n($as_s_Some(result)).s_Some__f_value);
-        var $x_27 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().table__Lscalatags_generic_TypedTag());
+        var $x_30 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().table__Lscalatags_generic_TypedTag());
+        var $x_29 = $m_sr_ScalaRunTime$();
+        var $x_28 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().thead__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Field"))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Value"))])))])))])));
+        var $x_27 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tbody__Lscalatags_generic_TypedTag());
         var $x_26 = $m_sr_ScalaRunTime$();
         var $x_25 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag()));
         var $x_24 = $m_sr_ScalaRunTime$();
-        var $x_23 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("IP"))])));
+        var $x_23 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("IP"))])));
         var $x_22 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
         var $x_21 = $m_sr_ScalaRunTime$();
         $m_Lscalatags_JsDom$all$();
-        var this$6 = $n($n(info).LGeoIpInfo__f_ip);
-        var v = $as_T((this$6.isEmpty__Z() ? "" : this$6.get__O()));
+        var this$11 = $n($n(info).LGeoIpInfo__f_ip);
+        var v = $as_T((this$11.isEmpty__Z() ? "N/A" : this$11.get__O()));
         var $x_20 = $n($x_25).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_24).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_23, $n($x_22).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_21).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])))])));
         var $x_19 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag()));
         var $x_18 = $m_sr_ScalaRunTime$();
-        var $x_17 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country"))])));
+        var $x_17 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country"))])));
         var $x_16 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
         var $x_15 = $m_sr_ScalaRunTime$();
         $m_Lscalatags_JsDom$all$();
-        var this$9 = $n($n(info).LGeoIpInfo__f_countryName);
-        var v$1 = $as_T((this$9.isEmpty__Z() ? "" : this$9.get__O()));
+        var this$14 = $n($n(info).LGeoIpInfo__f_countryName);
+        var v$1 = $as_T((this$14.isEmpty__Z() ? "N/A" : this$14.get__O()));
         var $x_14 = $n($x_19).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_18).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_17, $n($x_16).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_15).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$1)])))])));
         var $x_13 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag()));
         var $x_12 = $m_sr_ScalaRunTime$();
-        var $x_11 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country Code"))])));
+        var $x_11 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country Code"))])));
         var $x_10 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
         var $x_9 = $m_sr_ScalaRunTime$();
         $m_Lscalatags_JsDom$all$();
-        var this$12 = $n($n(info).LGeoIpInfo__f_countryCode);
-        var v$2 = $as_T((this$12.isEmpty__Z() ? "" : this$12.get__O()));
+        var this$17 = $n($n(info).LGeoIpInfo__f_countryCode);
+        var v$2 = $as_T((this$17.isEmpty__Z() ? "N/A" : this$17.get__O()));
         var $x_8 = $n($x_13).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_12).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_11, $n($x_10).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_9).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$2)])))])));
         var $x_7 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag());
         var $x_6 = $m_sr_ScalaRunTime$();
-        var $x_5 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Timezone"))])));
+        var $x_5 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Timezone"))])));
         var $x_4 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
         var $x_3 = $m_sr_ScalaRunTime$();
         $m_Lscalatags_JsDom$all$();
-        var this$15 = $n($n(info).LGeoIpInfo__f_timezone);
-        var v$3 = $as_T((this$15.isEmpty__Z() ? "" : this$15.get__O()));
-        var $x_2 = $n($n($x_27).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_26).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_20, $x_14, $x_8, $n($x_7).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_6).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_5, $n($x_4).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_3).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$3)])))])))])))).render__Lorg_scalajs_dom_Element().outerHTML;
+        var this$20 = $n($n(info).LGeoIpInfo__f_timezone);
+        var v$3 = $as_T((this$20.isEmpty__Z() ? "N/A" : this$20.get__O()));
+        var $x_2 = $n($n($x_30).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_29).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_28, $n($x_27).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_26).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_20, $x_14, $x_8, $n($x_7).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_6).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_5, $n($x_4).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_3).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$3)])))])))])))])))).render__Lorg_scalajs_dom_Element().outerHTML;
         var $x_1 = $as_T($x_2);
         break matchResult1;
       }
       var x = $m_s_None$();
       if ((x === result)) {
-        var $x_1 = "Error looking up IP";
+        var $x_1 = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Error looking up IP"))])))).render__Lorg_scalajs_dom_Element().outerHTML);
         break matchResult1;
       }
       throw new $c_s_MatchError(result);
     }
     resultDiv.innerHTML = $x_1;
-  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
+  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_LFrontendMain$$anon$1(resultDiv), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
 $c_LFrontendMain$.prototype.loadMappings__Lorg_scalajs_dom_Event__V = (function(e) {
   var tableDiv = document.getElementById("mappingsTable");
-  $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings"))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$3) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$3.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
+  tableDiv.innerHTML = $as_T($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Loading..."))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+  $n($n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings"))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$3) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$3.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
     var response$1 = $as_T(response);
-    var this$2 = $n($n($m_Lio_circe_parser_package$().parse__T__s_util_Either(response$1)).toOption__s_Option());
-    if (this$2.isEmpty__Z()) {
+    var this$3 = $n($n($m_Lio_circe_parser_package$().parse__T__s_util_Either(response$1)).toOption__s_Option());
+    if (this$3.isEmpty__Z()) {
       var $x_1 = $m_s_None$();
     } else {
-      var arg1 = this$2.get__O();
+      var arg1 = this$3.get__O();
       var _$4 = $as_Lio_circe_Json(arg1);
-      var this$4 = $n(_$4);
-      var this$3 = $m_Lio_circe_Decoder$();
+      var this$5 = $n(_$4);
+      var this$4 = $m_Lio_circe_Decoder$();
       var decodeA = $m_LIpMapping$().LIpMapping$__f_decoder;
-      var d = new $c_Lio_circe_Decoder$$anon$46(decodeA, this$3);
-      var $x_1 = $n(d.apply__Lio_circe_HCursor__s_util_Either(new $c_Lio_circe_cursor_TopCursor(this$4, null, null))).toOption__s_Option();
+      var d = new $c_Lio_circe_Decoder$$anon$46(decodeA, this$4);
+      var $x_1 = $n(d.apply__Lio_circe_HCursor__s_util_Either(new $c_Lio_circe_cursor_TopCursor(this$5, null, null))).toOption__s_Option();
     }
-    var this$6 = $n($x_1);
-    var mappings = $as_sci_List((this$6.isEmpty__Z() ? $m_sci_Nil$() : this$6.get__O()));
-    var $x_14 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().table__Lscalatags_generic_TypedTag());
-    var $x_13 = $m_sr_ScalaRunTime$();
-    var $x_12 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().thead__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Pattern"))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country Code"))])))])))])));
-    var $x_11 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tbody__Lscalatags_generic_TypedTag());
-    var $x_10 = $m_sr_ScalaRunTime$();
-    var this$14 = $m_Lscalatags_JsDom$all$();
-    var this$11 = $n(mappings);
-    var f = ((mapping) => {
-      var mapping$1 = $as_LIpMapping(mapping);
-      var $x_9 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag()));
-      var $x_8 = $m_sr_ScalaRunTime$();
-      var $x_7 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag()));
-      var $x_6 = $m_sr_ScalaRunTime$();
-      $m_Lscalatags_JsDom$all$();
-      var v = $n(mapping$1).LIpMapping__f_pattern;
-      var $x_5 = $n($x_7).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_6).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])));
-      var $x_4 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
-      var $x_3 = $m_sr_ScalaRunTime$();
-      $m_Lscalatags_JsDom$all$();
-      var v$1 = $n(mapping$1).LIpMapping__f_countryCode;
-      return $n($x_9).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_8).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_5, $n($x_4).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_3).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$1)])))])));
-    });
-    if ((this$11 === $m_sci_Nil$())) {
-      var xs = $m_sci_Nil$();
+    var this$7 = $n($x_1);
+    var mappings = $as_sci_List((this$7.isEmpty__Z() ? $m_sci_Nil$() : this$7.get__O()));
+    if ($n(mappings).isEmpty__Z()) {
+      tableDiv.innerHTML = $as_T($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("No mappings found"))])))).render__Lorg_scalajs_dom_Element().outerHTML);
     } else {
-      var arg1$1 = this$11.head__O();
-      var h = new $c_sci_$colon$colon(f(arg1$1), $m_sci_Nil$());
-      var t = h;
-      var rest = $as_sci_List(this$11.tail__O());
-      while ((rest !== $m_sci_Nil$())) {
-        var arg1$2 = $n(rest).head__O();
-        var nx = new $c_sci_$colon$colon(f(arg1$2), $m_sci_Nil$());
-        $n(t).sci_$colon$colon__f_next = nx;
-        t = nx;
-        rest = $as_sci_List($n(rest).tail__O());
+      var $x_14 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().table__Lscalatags_generic_TypedTag());
+      var $x_13 = $m_sr_ScalaRunTime$();
+      var $x_12 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().thead__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("IP Pattern"))]))), $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().th__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Country Code"))])))])))])));
+      var $x_11 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tbody__Lscalatags_generic_TypedTag());
+      var $x_10 = $m_sr_ScalaRunTime$();
+      var this$16 = $m_Lscalatags_JsDom$all$();
+      var this$13 = $n(mappings);
+      var f = ((mapping) => {
+        var mapping$1 = $as_LIpMapping(mapping);
+        var $x_9 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().tr__Lscalatags_generic_TypedTag()));
+        var $x_8 = $m_sr_ScalaRunTime$();
+        var $x_7 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag()));
+        var $x_6 = $m_sr_ScalaRunTime$();
+        $m_Lscalatags_JsDom$all$();
+        var v = $n(mapping$1).LIpMapping__f_pattern;
+        var $x_5 = $n($x_7).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_6).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])));
+        var $x_4 = $as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().td__Lscalatags_generic_TypedTag());
+        var $x_3 = $m_sr_ScalaRunTime$();
+        $m_Lscalatags_JsDom$all$();
+        var v$1 = $n(mapping$1).LIpMapping__f_countryCode;
+        return $n($x_9).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_8).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_5, $n($x_4).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_3).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v$1)])))])));
+      });
+      if ((this$13 === $m_sci_Nil$())) {
+        var xs = $m_sci_Nil$();
+      } else {
+        var arg1$1 = this$13.head__O();
+        var h = new $c_sci_$colon$colon(f(arg1$1), $m_sci_Nil$());
+        var t = h;
+        var rest = $as_sci_List(this$13.tail__O());
+        while ((rest !== $m_sci_Nil$())) {
+          var arg1$2 = $n(rest).head__O();
+          var nx = new $c_sci_$colon$colon(f(arg1$2), $m_sci_Nil$());
+          $n(t).sci_$colon$colon__f_next = nx;
+          t = nx;
+          rest = $as_sci_List($n(rest).tail__O());
+        }
+        var xs = h;
       }
-      var xs = h;
+      var this$15 = $m_s_$less$colon$less$();
+      var ev = this$15.s_$less$colon$less$__f_singleton;
+      var $x_2 = $n($n($x_14).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_13).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_12, $n($x_11).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_10).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$Cap$SeqFrag(this$16, xs, ev)])))])))).render__Lorg_scalajs_dom_Element().outerHTML;
+      tableDiv.innerHTML = $as_T($x_2);
     }
-    var this$13 = $m_s_$less$colon$less$();
-    var ev = this$13.s_$less$colon$less$__f_singleton;
-    var $x_2 = $n($n($x_14).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_13).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$x_12, $n($x_11).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_10).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$Cap$SeqFrag(this$14, xs, ev)])))])))).render__Lorg_scalajs_dom_Element().outerHTML;
-    tableDiv.innerHTML = $as_T($x_2);
-  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
+  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_LFrontendMain$$anon$2(tableDiv), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
 $c_LFrontendMain$.prototype.addMapping__Lorg_scalajs_dom_Event__V = (function(e) {
   var pattern = $as_T(document.getElementById("patternInput").value);
   var country = $as_T(document.getElementById("countryInput").value);
   var resultDiv = document.getElementById("addResult");
-  $n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings", (() => {
+  var this$1 = $n(pattern);
+  if ((this$1 === "")) {
+    var $x_1 = true;
+  } else {
+    var this$2 = $n(country);
+    var $x_1 = (this$2 === "");
+  }
+  if ($x_1) {
+    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Please fill in all fields"))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+    return (void 0);
+  }
+  resultDiv.innerHTML = $as_T($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag("Adding mapping..."))])))).render__Lorg_scalajs_dom_Element().outerHTML);
+  $n($n($n($m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(fetch("/mock-geo-ip/mappings", (() => {
     var pattern$1 = null;
     var country$1 = null;
     pattern$1 = pattern;
     country$1 = country;
-    var this$1 = ({});
-    this$1.method = "POST";
+    var this$5 = ({});
+    this$5.method = "POST";
     var properties = $m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_T2.getArrayOf().constr)([new $c_T2("Content-Type", "application/json")]));
-    this$1.headers = $m_sjs_js_special_package$().objectLiteral__sci_Seq__sjs_js_Object(properties);
-    this$1.body = (((("{\"pattern\": \"" + pattern$1) + "\", \"countryCode\": \"") + country$1) + "\"}");
-    return this$1;
+    this$5.headers = $m_sjs_js_special_package$().objectLiteral__sci_Seq__sjs_js_Object(properties);
+    this$5.body = (((("{\"pattern\": \"" + pattern$1) + "\", \"countryCode\": \"") + country$1) + "\"}");
+    return this$5;
   })()))).flatMap__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((_$5) => $m_sjs_js_Thenable$Implicits$().thenable2future__sjs_js_Thenable__s_concurrent_Future(_$5.text()))), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_sjsr_AnonFunction1(((response) => {
     var response$1 = $as_T(response);
-    resultDiv.innerHTML = response$1;
+    resultDiv.innerHTML = $as_T($n($n($n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("success", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])))).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([($m_Lscalatags_JsDom$all$(), new $c_Lscalatags_JsDom$StringFrag(response$1))])))).render__Lorg_scalajs_dom_Element().outerHTML);
     $m_LFrontendMain$().loadMappings__Lorg_scalajs_dom_Event__V(e);
-  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
+  })), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor())).recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future(new $c_LFrontendMain$$anon$4(resultDiv), $m_s_concurrent_ExecutionContext$().global__s_concurrent_ExecutionContextExecutor());
 });
 var $d_LFrontendMain$ = new $TypeData().initClass($c_LFrontendMain$, "FrontendMain$", ({
   LFrontendMain$: 1
@@ -7348,6 +7375,30 @@ $c_s_LowPriorityImplicits2.prototype.constructor = $c_s_LowPriorityImplicits2;
 function $h_s_LowPriorityImplicits2() {
 }
 $h_s_LowPriorityImplicits2.prototype = $c_s_LowPriorityImplicits2.prototype;
+/** @constructor */
+function $c_s_PartialFunction$() {
+  this.s_PartialFunction$__f_fallback_fn = null;
+  this.s_PartialFunction$__f_empty_pf = null;
+  $n_s_PartialFunction$ = this;
+  this.s_PartialFunction$__f_fallback_fn = new $c_sjsr_AnonFunction1(((x$2$2) => $m_s_PartialFunction$().s_PartialFunction$__f_fallback_fn));
+  this.s_PartialFunction$__f_empty_pf = new $c_s_PartialFunction$$anon$1();
+}
+$c_s_PartialFunction$.prototype = new $h_O();
+$c_s_PartialFunction$.prototype.constructor = $c_s_PartialFunction$;
+/** @constructor */
+function $h_s_PartialFunction$() {
+}
+$h_s_PartialFunction$.prototype = $c_s_PartialFunction$.prototype;
+var $d_s_PartialFunction$ = new $TypeData().initClass($c_s_PartialFunction$, "scala.PartialFunction$", ({
+  s_PartialFunction$: 1
+}));
+var $n_s_PartialFunction$;
+function $m_s_PartialFunction$() {
+  if ((!$n_s_PartialFunction$)) {
+    $n_s_PartialFunction$ = new $c_s_PartialFunction$();
+  }
+  return $n_s_PartialFunction$;
+}
 /** @constructor */
 function $c_T$() {
 }
@@ -19244,6 +19295,22 @@ function $isArrayOf_s_math_ScalaNumber(obj, depth) {
 function $asArrayOf_s_math_ScalaNumber(obj, depth) {
   return (($isArrayOf_s_math_ScalaNumber(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.math.ScalaNumber;", depth));
 }
+/** @constructor */
+function $c_sr_AbstractPartialFunction() {
+}
+$c_sr_AbstractPartialFunction.prototype = new $h_O();
+$c_sr_AbstractPartialFunction.prototype.constructor = $c_sr_AbstractPartialFunction;
+/** @constructor */
+function $h_sr_AbstractPartialFunction() {
+}
+$h_sr_AbstractPartialFunction.prototype = $c_sr_AbstractPartialFunction.prototype;
+$c_sr_AbstractPartialFunction.prototype.toString__T = (function() {
+  return "<function1>";
+});
+$c_sr_AbstractPartialFunction.prototype.apply__O__O = (function(x) {
+  var default$1 = $m_s_PartialFunction$().s_PartialFunction$__f_empty_pf;
+  return this.applyOrElse__jl_Throwable__F1__O($as_jl_Throwable(x), default$1);
+});
 var $d_sr_Nothing$ = new $TypeData().initClass(0, "scala.runtime.Nothing$", ({
   sr_Nothing$: 1,
   jl_Throwable: 1,
@@ -23527,6 +23594,36 @@ function $h_s_$eq$colon$eq() {
 }
 $h_s_$eq$colon$eq.prototype = $c_s_$eq$colon$eq.prototype;
 /** @constructor */
+function $c_s_PartialFunction$$anon$1() {
+}
+$c_s_PartialFunction$$anon$1.prototype = new $h_O();
+$c_s_PartialFunction$$anon$1.prototype.constructor = $c_s_PartialFunction$$anon$1;
+/** @constructor */
+function $h_s_PartialFunction$$anon$1() {
+}
+$h_s_PartialFunction$$anon$1.prototype = $c_s_PartialFunction$$anon$1.prototype;
+$c_s_PartialFunction$$anon$1.prototype.applyOrElse__O__F1__O = (function(x, default$1) {
+  return $f_s_PartialFunction__applyOrElse__O__F1__O(this, x, default$1);
+});
+$c_s_PartialFunction$$anon$1.prototype.toString__T = (function() {
+  return "<function1>";
+});
+$c_s_PartialFunction$$anon$1.prototype.isDefinedAt__O__Z = (function(x) {
+  return false;
+});
+$c_s_PartialFunction$$anon$1.prototype.apply__O__E = (function(x) {
+  throw new $c_s_MatchError(x);
+});
+$c_s_PartialFunction$$anon$1.prototype.apply__O__O = (function(v1) {
+  this.apply__O__E(v1);
+});
+var $d_s_PartialFunction$$anon$1 = new $TypeData().initClass($c_s_PartialFunction$$anon$1, "scala.PartialFunction$$anon$1", ({
+  s_PartialFunction$$anon$1: 1,
+  s_PartialFunction: 1,
+  F1: 1,
+  Ljava_io_Serializable: 1
+}));
+/** @constructor */
 function $c_sc_AbstractIterator() {
 }
 $c_sc_AbstractIterator.prototype = new $h_O();
@@ -24318,6 +24415,114 @@ var $d_Lscalatags_generic_Attr = new $TypeData().initClass($c_Lscalatags_generic
   Lscalatags_generic_Attr: 1,
   s_Equals: 1,
   s_Product: 1,
+  Ljava_io_Serializable: 1
+}));
+/** @constructor */
+function $c_LFrontendMain$$anon$1(resultDiv$6) {
+  this.LFrontendMain$$anon$1__f_resultDiv$2 = null;
+  this.LFrontendMain$$anon$1__f_resultDiv$2 = resultDiv$6;
+}
+$c_LFrontendMain$$anon$1.prototype = new $h_sr_AbstractPartialFunction();
+$c_LFrontendMain$$anon$1.prototype.constructor = $c_LFrontendMain$$anon$1;
+/** @constructor */
+function $h_LFrontendMain$$anon$1() {
+}
+$h_LFrontendMain$$anon$1.prototype = $c_LFrontendMain$$anon$1.prototype;
+$c_LFrontendMain$$anon$1.prototype.isDefinedAt__jl_Throwable__Z = (function(x) {
+  return true;
+});
+$c_LFrontendMain$$anon$1.prototype.applyOrElse__jl_Throwable__F1__O = (function(x, default$1) {
+  var $x_4 = this.LFrontendMain$$anon$1__f_resultDiv$2;
+  var $x_3 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_2 = $m_sr_ScalaRunTime$();
+  $m_Lscalatags_JsDom$all$();
+  var v = ("Error: " + $n(x).getMessage__T());
+  var $x_1 = $n($n($x_3).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_2).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])))).render__Lorg_scalajs_dom_Element().outerHTML;
+  $x_4.innerHTML = $as_T($x_1);
+});
+$c_LFrontendMain$$anon$1.prototype.isDefinedAt__O__Z = (function(x) {
+  return this.isDefinedAt__jl_Throwable__Z($as_jl_Throwable(x));
+});
+$c_LFrontendMain$$anon$1.prototype.applyOrElse__O__F1__O = (function(x, default$1) {
+  return this.applyOrElse__jl_Throwable__F1__O($as_jl_Throwable(x), default$1);
+});
+var $d_LFrontendMain$$anon$1 = new $TypeData().initClass($c_LFrontendMain$$anon$1, "FrontendMain$$anon$1", ({
+  LFrontendMain$$anon$1: 1,
+  sr_AbstractPartialFunction: 1,
+  F1: 1,
+  s_PartialFunction: 1,
+  Ljava_io_Serializable: 1
+}));
+/** @constructor */
+function $c_LFrontendMain$$anon$2(tableDiv$4) {
+  this.LFrontendMain$$anon$2__f_tableDiv$2 = null;
+  this.LFrontendMain$$anon$2__f_tableDiv$2 = tableDiv$4;
+}
+$c_LFrontendMain$$anon$2.prototype = new $h_sr_AbstractPartialFunction();
+$c_LFrontendMain$$anon$2.prototype.constructor = $c_LFrontendMain$$anon$2;
+/** @constructor */
+function $h_LFrontendMain$$anon$2() {
+}
+$h_LFrontendMain$$anon$2.prototype = $c_LFrontendMain$$anon$2.prototype;
+$c_LFrontendMain$$anon$2.prototype.isDefinedAt__jl_Throwable__Z = (function(x) {
+  return true;
+});
+$c_LFrontendMain$$anon$2.prototype.applyOrElse__jl_Throwable__F1__O = (function(x, default$1) {
+  var $x_4 = this.LFrontendMain$$anon$2__f_tableDiv$2;
+  var $x_3 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_2 = $m_sr_ScalaRunTime$();
+  $m_Lscalatags_JsDom$all$();
+  var v = ("Error: " + $n(x).getMessage__T());
+  var $x_1 = $n($n($x_3).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_2).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])))).render__Lorg_scalajs_dom_Element().outerHTML;
+  $x_4.innerHTML = $as_T($x_1);
+});
+$c_LFrontendMain$$anon$2.prototype.isDefinedAt__O__Z = (function(x) {
+  return this.isDefinedAt__jl_Throwable__Z($as_jl_Throwable(x));
+});
+$c_LFrontendMain$$anon$2.prototype.applyOrElse__O__F1__O = (function(x, default$1) {
+  return this.applyOrElse__jl_Throwable__F1__O($as_jl_Throwable(x), default$1);
+});
+var $d_LFrontendMain$$anon$2 = new $TypeData().initClass($c_LFrontendMain$$anon$2, "FrontendMain$$anon$2", ({
+  LFrontendMain$$anon$2: 1,
+  sr_AbstractPartialFunction: 1,
+  F1: 1,
+  s_PartialFunction: 1,
+  Ljava_io_Serializable: 1
+}));
+/** @constructor */
+function $c_LFrontendMain$$anon$4(resultDiv$8) {
+  this.LFrontendMain$$anon$4__f_resultDiv$4 = null;
+  this.LFrontendMain$$anon$4__f_resultDiv$4 = resultDiv$8;
+}
+$c_LFrontendMain$$anon$4.prototype = new $h_sr_AbstractPartialFunction();
+$c_LFrontendMain$$anon$4.prototype.constructor = $c_LFrontendMain$$anon$4;
+/** @constructor */
+function $h_LFrontendMain$$anon$4() {
+}
+$h_LFrontendMain$$anon$4.prototype = $c_LFrontendMain$$anon$4.prototype;
+$c_LFrontendMain$$anon$4.prototype.isDefinedAt__jl_Throwable__Z = (function(x) {
+  return true;
+});
+$c_LFrontendMain$$anon$4.prototype.applyOrElse__jl_Throwable__F1__O = (function(x, default$1) {
+  var $x_4 = this.LFrontendMain$$anon$4__f_resultDiv$4;
+  var $x_3 = $n($as_Lscalatags_JsDom$TypedTag($m_Lscalatags_JsDom$all$().div__Lscalatags_generic_TypedTag())).apply__sci_Seq__Lscalatags_JsDom$TypedTag($m_sr_ScalaRunTime$().wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([$n($m_Lscalatags_JsDom$all$().cls__Lscalatags_generic_Attr()).$colon$eq__O__Lscalatags_generic_AttrValue__Lscalatags_generic_AttrPair("error", $m_Lscalatags_JsDom$all$().Lscalatags_JsDom$all$__f_stringAttr)])));
+  var $x_2 = $m_sr_ScalaRunTime$();
+  $m_Lscalatags_JsDom$all$();
+  var v = ("Error: " + $n(x).getMessage__T());
+  var $x_1 = $n($n($x_3).apply__sci_Seq__Lscalatags_JsDom$TypedTag($n($x_2).wrapRefArray__AO__sci_ArraySeq(new ($d_Lscalatags_generic_Modifier.getArrayOf().constr)([new $c_Lscalatags_JsDom$StringFrag(v)])))).render__Lorg_scalajs_dom_Element().outerHTML;
+  $x_4.innerHTML = $as_T($x_1);
+});
+$c_LFrontendMain$$anon$4.prototype.isDefinedAt__O__Z = (function(x) {
+  return this.isDefinedAt__jl_Throwable__Z($as_jl_Throwable(x));
+});
+$c_LFrontendMain$$anon$4.prototype.applyOrElse__O__F1__O = (function(x, default$1) {
+  return this.applyOrElse__jl_Throwable__F1__O($as_jl_Throwable(x), default$1);
+});
+var $d_LFrontendMain$$anon$4 = new $TypeData().initClass($c_LFrontendMain$$anon$4, "FrontendMain$$anon$4", ({
+  LFrontendMain$$anon$4: 1,
+  sr_AbstractPartialFunction: 1,
+  F1: 1,
+  s_PartialFunction: 1,
   Ljava_io_Serializable: 1
 }));
 /** @constructor */
@@ -35187,6 +35392,10 @@ $c_s_concurrent_impl_Promise$DefaultPromise.prototype.map__F1__s_concurrent_Exec
   var state = this.ju_concurrent_atomic_AtomicReference__f_value;
   return ((!(state instanceof $c_s_util_Failure)) ? $as_s_concurrent_Future($p_s_concurrent_impl_Promise$DefaultPromise__dispatchOrAddCallbacks__O__s_concurrent_impl_Promise$Callbacks__s_concurrent_impl_Promise$Callbacks(this, state, $ct_s_concurrent_impl_Promise$Transformation__I__F1__s_concurrent_ExecutionContext__(new $c_s_concurrent_impl_Promise$Transformation(), 1, f, executor))) : this);
 });
+$c_s_concurrent_impl_Promise$DefaultPromise.prototype.recover__s_PartialFunction__s_concurrent_ExecutionContext__s_concurrent_Future = (function(pf, executor) {
+  var state = this.ju_concurrent_atomic_AtomicReference__f_value;
+  return ((!(state instanceof $c_s_util_Success)) ? $as_s_concurrent_Future($p_s_concurrent_impl_Promise$DefaultPromise__dispatchOrAddCallbacks__O__s_concurrent_impl_Promise$Callbacks__s_concurrent_impl_Promise$Callbacks(this, state, $ct_s_concurrent_impl_Promise$Transformation__I__F1__s_concurrent_ExecutionContext__(new $c_s_concurrent_impl_Promise$Transformation(), 7, pf, executor))) : this);
+});
 $c_s_concurrent_impl_Promise$DefaultPromise.prototype.onComplete__F1__s_concurrent_ExecutionContext__V = (function(func, executor) {
   $p_s_concurrent_impl_Promise$DefaultPromise__dispatchOrAddCallbacks__O__s_concurrent_impl_Promise$Callbacks__s_concurrent_impl_Promise$Callbacks(this, this.ju_concurrent_atomic_AtomicReference__f_value, $ct_s_concurrent_impl_Promise$Transformation__I__F1__s_concurrent_ExecutionContext__(new $c_s_concurrent_impl_Promise$Transformation(), 6, func, executor));
 });
@@ -41716,6 +41925,8 @@ function $c_Lscalatags_JsDom$all$() {
   this.Lscalatags_JsDom$all$__f_idbitmap$3 = false;
   this.Lscalatags_JsDom$all$__f_placeholder$lzy2 = null;
   this.Lscalatags_JsDom$all$__f_placeholderbitmap$2 = false;
+  this.Lscalatags_JsDom$all$__f_type$lzy3 = null;
+  this.Lscalatags_JsDom$all$__f_typebitmap$3 = false;
   this.Lscalatags_JsDom$all$__f_onclick$lzy2 = null;
   this.Lscalatags_JsDom$all$__f_onclickbitmap$2 = false;
   this.Lscalatags_JsDom$all$__f_h1$lzy2 = null;
@@ -41781,6 +41992,13 @@ $c_Lscalatags_JsDom$all$.prototype.placeholder__Lscalatags_generic_Attr = (funct
     this.Lscalatags_JsDom$all$__f_placeholderbitmap$2 = true;
   }
   return this.Lscalatags_JsDom$all$__f_placeholder$lzy2;
+});
+$c_Lscalatags_JsDom$all$.prototype.type__Lscalatags_generic_Attr = (function() {
+  if ((!this.Lscalatags_JsDom$all$__f_typebitmap$3)) {
+    this.Lscalatags_JsDom$all$__f_type$lzy3 = $f_Lscalatags_generic_Util__attr__T__Lscalatags_generic_Namespace__Z__Lscalatags_generic_Attr(this, "type", null, false);
+    this.Lscalatags_JsDom$all$__f_typebitmap$3 = true;
+  }
+  return this.Lscalatags_JsDom$all$__f_type$lzy3;
 });
 $c_Lscalatags_JsDom$all$.prototype.onclick__Lscalatags_generic_Attr = (function() {
   if ((!this.Lscalatags_JsDom$all$__f_onclickbitmap$2)) {

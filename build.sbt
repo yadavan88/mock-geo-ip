@@ -22,9 +22,12 @@ lazy val backend = project
     ),
     Compile / resourceGenerators += Def.task {
       val frontendFiles = (frontend / Compile / fastOptJS).value
-      val targetDir = (Compile / resourceDirectory).value / "assets"
-      IO.createDirectory(targetDir)
-      IO.copyFile(frontendFiles.data, targetDir / "main.js")
+      val frontendHtml = (frontend / Compile / resourceDirectory).value / "index.html"
+      val targetDir = (Compile / resourceDirectory).value
+      val assetsDir = targetDir / "assets"
+      IO.createDirectory(assetsDir)
+      IO.copyFile(frontendFiles.data, assetsDir / "main.js")
+      IO.copyFile(frontendHtml, targetDir / "index.html")
       Seq(targetDir)
     }.dependsOn(frontend / Compile / fastOptJS).taskValue,
     // Docker settings
