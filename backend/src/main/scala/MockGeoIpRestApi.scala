@@ -8,10 +8,24 @@ import org.http4s.circe.CirceEntityCodec.{
   circeEntityEncoder
 }
 import org.http4s.dsl.io.*
+import org.http4s.server.staticcontent.*
+import cats.syntax.semigroupk.*
+import org.http4s.headers.`Content-Type`
+import org.http4s.MediaType
+import java.io.File
+import java.nio.file.Paths
 
 class MockGeoIpRestApi {
   def apply(): HttpRoutes[IO] = {
-    HttpRoutes.of[IO] {
+    val staticRoutes = resourceServiceBuilder[IO]("/assets")
+      .withPathPrefix("assets")
+      .toRoutes
+
+    val apiRoutes = HttpRoutes.of[IO] {
+      case GET -> Root =>
+        StaticFile.fromResource[IO]("/index.html", None)
+          .getOrElseF(NotFound())
+
       case GET -> Root / "mock-geo-ip" / "csv" / ip =>
         try {
           println(s"IP: $ip")
@@ -59,5 +73,7 @@ class MockGeoIpRestApi {
           }
         } yield result
     }
+
+    staticRoutes <+> apiRoutes
   }
 }

@@ -16,7 +16,14 @@ lazy val backend = project
       "org.http4s" %% "http4s-dsl" % "0.23.30",
       "org.http4s" %% "http4s-circe" % "0.23.30",
       "com.ibm.icu" % "icu4j" % "77.1"
-    )
+    ),
+    Compile / resourceGenerators += Def.task {
+      val frontendFiles = (frontend / Compile / fastOptJS).value
+      val targetDir = (Compile / resourceDirectory).value / "assets"
+      IO.createDirectory(targetDir)
+      IO.copyFile(frontendFiles.data, targetDir / "main.js")
+      Seq(targetDir)
+    }.dependsOn(frontend / Compile / fastOptJS).taskValue
   ).dependsOn(shared)
 
 lazy val frontend = project
