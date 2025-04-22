@@ -1,6 +1,7 @@
 import cats.effect.IO
 import io.circe.generic.semiauto.*
 import io.circe.syntax.*
+import io.circe.generic.auto.*
 import org.http4s.*
 import org.http4s.circe.*
 import org.http4s.circe.CirceEntityCodec.{
@@ -33,11 +34,13 @@ class MockGeoIpRestApi {
           println(s"Decoded IP: $decodedIp")
           val geoIpInfo = MockGeoIpInfoGenerator.generate(decodedIp)
           println(s"Generated GeoIpInfo: $geoIpInfo")
+          IpMappingRepo.addRequestHistory(decodedIp, "success", geoIpInfo.countryCode)
           Ok(geoIpInfo.asJson)
         } catch {
           case ex: Exception =>
             println(s"Error processing request: ${ex.getMessage}")
             ex.printStackTrace()
+            IpMappingRepo.addRequestHistory(ip, "failed", None)
             InternalServerError(ex.getMessage)
         }
 
@@ -72,7 +75,16 @@ class MockGeoIpRestApi {
               BadRequest(error)
           }
         } yield result
+
+      case DELETE -> Root / "mock-geo-ip" / "mappings" / key =>
+        IpMappingRepo.deleteMapping(key)
+        Ok("Mapping deleted successfully")  
+
+      case GET -> Root / "mock-geo-ip" / "history" =>
+        Ok(IpMappingRepo.getRequestHistory.asJson)  
     }
+
+    
 
     staticRoutes <+> apiRoutes
   }

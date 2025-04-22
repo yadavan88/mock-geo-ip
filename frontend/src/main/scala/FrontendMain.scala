@@ -55,6 +55,13 @@ object FrontendMain {
           button("Add", onclick := addMapping)
         ),
         div(id := "addResult", cls := "result-container")
+      ),
+
+      // Request History section
+      div(cls := "container")(
+        h2("Request History"),
+        button("Refresh History", onclick := loadHistory),
+        div(id := "historyTable", cls := "result-container")
       )
     ).render
   }
@@ -70,8 +77,9 @@ object FrontendMain {
 
     resultDiv.innerHTML = div("Loading...").render.outerHTML
 
+    val encodedIp = js.URIUtils.encodeURIComponent(ip)
     dom
-      .fetch(s"/mock-geo-ip/csv/$ip")
+      .fetch(s"/mock-geo-ip/csv/$encodedIp")
       .flatMap(_.text())
       .map { response =>
         val result = io.circe.parser
@@ -112,16 +120,18 @@ object FrontendMain {
       .fetch("/mock-geo-ip/mappings")
       .flatMap(_.text())
       .map { response =>
+
         val mappings = io.circe.parser
           .parse(response)
           .toOption
           .flatMap(_.as[List[IpMapping]].toOption)
           .getOrElse(Nil)
 
+
         if (mappings.isEmpty) {
           tableDiv.innerHTML = div("No mappings found").render.outerHTML
         } else {
-          tableDiv.innerHTML = table(
+          val tableHtml = table(
             thead(
               tr(
                 th("IP Pattern"),
@@ -129,16 +139,20 @@ object FrontendMain {
               )
             ),
             tbody(
-              for (mapping <- mappings)
-                yield tr(
+              for (mapping <- mappings) yield {
+                tr(
                   td(mapping.pattern),
                   td(mapping.countryCode)
                 )
+              }
             )
           ).render.outerHTML
+          
+          tableDiv.innerHTML = tableHtml
         }
       }
       .recover { case ex =>
+        println(s"Error loading mappings: ${ex.getMessage}") // Debug log
         tableDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
       }
   }
@@ -178,6 +192,49 @@ object FrontendMain {
       }
       .recover { case ex =>
         resultDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
+      }
+  }
+
+  def loadHistory(e: dom.Event): Unit = {
+    val tableDiv = document.getElementById("historyTable")
+    tableDiv.innerHTML = div("Loading...").render.outerHTML
+
+    dom
+      .fetch("/mock-geo-ip/history")
+      .flatMap(_.text())
+      .map { response =>
+        val history = io.circe.parser
+          .parse(response)
+          .toOption
+          .flatMap(_.as[List[RequestHistoryEntry]].toOption)
+          .getOrElse(Nil)
+
+        if (history.isEmpty) {
+          tableDiv.innerHTML = div("No history found").render.outerHTML
+        } else {
+          tableDiv.innerHTML = table(
+            thead(
+              tr(
+                th("Timestamp"),
+                th("IP"),
+                th("Status"),
+                th("Country Code")
+              )
+            ),
+            tbody(
+              for (entry <- history)
+                yield tr(
+                  td(new js.Date(entry.timestamp).toLocaleString()),
+                  td(entry.ip),
+                  td(entry.status),
+                  td(entry.countryCode.getOrElse("N/A"))
+                )
+            )
+          ).render.outerHTML
+        }
+      }
+      .recover { case ex =>
+        tableDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
       }
   }
 }

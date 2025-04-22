@@ -4,6 +4,10 @@ import scala.io.Source
 import scala.util.Using
 import java.io.PrintWriter
 import cats.effect.IO
+import scala.collection.mutable.Queue
+import io.circe.generic.semiauto.*
+import io.circe.syntax.*
+import io.circe.generic.auto.*
 
 object IpMappingRepo {
   // Use environment variable or fallback to local directory
@@ -12,13 +16,33 @@ object IpMappingRepo {
     .getOrElse(Paths.get("data"))
   private val csvFile = dataDir.resolve("ip_mappings.csv")
 
+  // Request history tracking
+  private val maxHistorySize = 20
+  private val requestHistory: Queue[RequestHistoryEntry] = Queue.empty
+
+  def addRequestHistory(ip: String, status: String, countryCode: Option[String]): Unit = {
+    val entry = RequestHistoryEntry(ip, System.currentTimeMillis(), status, countryCode)
+    requestHistory.enqueue(entry)
+    if (requestHistory.size > maxHistorySize) {
+      requestHistory.dequeue()
+    }
+  }
+
+  def getRequestHistory: List[RequestHistoryEntry] = {
+    requestHistory.toList.reverse
+  }
+
+  def getIpRequestHistory(): IO[List[RequestHistoryEntry]] = {
+    IO.pure(getRequestHistory)
+  }
+
   def readMappings(): Map[String, String] = {
     if (!Files.exists(dataDir)) {
       Files.createDirectories(dataDir)
     }
 
     if (!Files.exists(csvFile)) {
-      println(s"Warning: ${csvFile} not found, using empty map")
+      println("Warning: ip_mappings.csv not found, using empty map")
       Map.empty
     } else {
       Using(Source.fromFile(csvFile.toFile)) { source =>
@@ -31,7 +55,7 @@ object IpMappingRepo {
           }
           .toMap
       }.getOrElse {
-        println(s"Error reading ${csvFile}, using empty map")
+        println("Error reading ip_mappings.csv, using empty map")
         Map.empty
       }
     }
@@ -71,5 +95,13 @@ object IpMappingRepo {
         case None => Right(())
       }
     }
+  }
+
+  def deleteMapping(key: String): IO[Unit] = {
+    val existingMappings = readMappings()
+    val updatedMappings = existingMappings.filterNot(_._1 == key)
+    saveMappings(updatedMappings.toList.map { case (p, c) =>
+      IpMapping(p, c)
+    })
   }
 }
