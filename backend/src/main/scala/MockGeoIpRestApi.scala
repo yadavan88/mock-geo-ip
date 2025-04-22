@@ -77,7 +77,7 @@ class MockGeoIpRestApi {
         } yield result
 
       case DELETE -> Root / "mock-geo-ip" / "mappings" / key =>
-        IpMappingRepo.deleteMapping(key)
+        IpMappingRepo.deleteMapping(key) *>
         Ok("Mapping deleted successfully")  
 
       case GET -> Root / "mock-geo-ip" / "history" =>

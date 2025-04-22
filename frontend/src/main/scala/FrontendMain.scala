@@ -135,20 +135,62 @@ object FrontendMain {
             thead(
               tr(
                 th("IP Pattern"),
-                th("Country Code")
+                th("Country Code"),
+                th("Actions")
               )
             ),
             tbody(
               for (mapping <- mappings) yield {
                 tr(
                   td(mapping.pattern),
-                  td(mapping.countryCode)
+                  td(mapping.countryCode),
+                  td(
+                    button(
+                      cls := "delete-btn",
+                      "Delete"
+                    )
+                  )
                 )
               }
             )
           ).render.outerHTML
           
           tableDiv.innerHTML = tableHtml
+          
+          // Add event listeners after table is rendered
+          val buttons = tableDiv.getElementsByClassName("delete-btn")
+          for (i <- 0 until buttons.length) {
+            val btn = buttons(i).asInstanceOf[html.Button]
+            val row = btn.parentElement.parentElement.asInstanceOf[html.TableRow]
+            val pattern = row.cells(0).textContent // Get pattern from first cell
+            
+            btn.onclick = { (e: dom.Event) =>
+              println(s"Delete button clicked for pattern: $pattern")
+              e.preventDefault()
+              
+              val resultDiv = document.getElementById("addResult")
+              resultDiv.innerHTML = div("Deleting mapping...").render.outerHTML
+              
+              val encodedPattern = js.URIUtils.encodeURIComponent(pattern)
+              dom
+                .fetch(
+                  s"/mock-geo-ip/mappings/$encodedPattern",
+                  new dom.RequestInit {
+                    method = "DELETE".asInstanceOf[dom.HttpMethod]
+                  }
+                )
+                .flatMap(_.text())
+                .map { response =>
+                  println(s"Delete response: $response")
+                  resultDiv.innerHTML = div(cls := "success")(response).render.outerHTML
+                  loadMappings(null) // Refresh the table
+                }
+                .recover { case ex =>
+                  println(s"Delete error: ${ex.getMessage}")
+                  resultDiv.innerHTML = div(cls := "error")(s"Error: ${ex.getMessage}").render.outerHTML
+                }
+            }
+          }
         }
       }
       .recover { case ex =>

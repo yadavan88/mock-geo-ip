@@ -100,6 +100,7 @@ object IpMappingRepo {
   def deleteMapping(key: String): IO[Unit] = {
     val existingMappings = readMappings()
     val updatedMappings = existingMappings.filterNot(_._1 == key)
+    println("no of mappings: " + updatedMappings.size)
     saveMappings(updatedMappings.toList.map { case (p, c) =>
       IpMapping(p, c)
     })
